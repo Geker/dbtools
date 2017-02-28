@@ -33,6 +33,7 @@ import cn.spring.config.SpringConfig;
 public class TransactionTest {
 
     /*************
+     * jdbctemplate执行的时候，回去通过DataSourceUtils判断是否有事务管理器，如果有，就从其中获取connnection，而不是用自己的ds获取conn
      * 本测试表明，使用TransactionTemplate时,其内部会创建事务。
      * 1.其事务实际开始为第一条修改的语句；
      * 2.其事务的隔离级别和db的隔离级别一直（？设置存疑？）
