@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status=trace 可以查看log4j的装配过程，相关状态有："trace", "debug", "info", "warn", 
+	"error" and "fatal"；monitorInterval检查配置文件是否发生变化，若变化自动刷新配置，单位秒，0关闭此选项。 -->
+<configuration status="debug" monitorInterval="30">
+	<properties>
+		<property name="LogPattern">%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%c][%X] - %msg%n%throwable</property>
+	</properties>
+	<appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LogPattern}" />
+		</Console>
+	</appenders>
+	<loggers>
+		<!-- Root Logger -->
+		<root level="debug" includeLocation="false">
+			<appender-ref ref="ConsoleAppender" />
+		</root>
+	</loggers>
+</configuration>
