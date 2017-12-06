@@ -36,11 +36,11 @@ public class TransactionTest {
      * jdbctemplate执行的时候，回去通过DataSourceUtils判断是否有事务管理器，如果有，就从其中获取connnection，而不是用自己的ds获取conn
      * 本测试表明，使用TransactionTemplate时,其内部会创建事务。
      * 1.其事务实际开始为第一条修改的语句；
-     * 2.其事务的隔离级别和db的隔离级别一直（？设置存疑？）
-     * 3.其不同事务之间的关系和db的关系一直
+     * 2.其事务的隔离级别和db的隔离级别一致（？设置存疑？）
+     * 3.其不同事务之间的关系和db的关系一致
      * 4.如果对相同的row的修改，导致事务锁定，后续的事务会被挂起，等待前面的事务执行完毕；
      * 5.time_out超时时间会让超时的事务失败
-     * 
+     *
      ****************/
     @Autowired
     TransactionTemplate template;
